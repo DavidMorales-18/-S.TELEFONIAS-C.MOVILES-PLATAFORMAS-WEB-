@@ -7,6 +7,7 @@ INTEGRANTES:
 - ANDRES GUEVARRA
 - KEVIN CHANGOLUISA
 - MARIO SUIN
+- DAVID MORALES
 ```
 
 Requerimientos funcionales:
