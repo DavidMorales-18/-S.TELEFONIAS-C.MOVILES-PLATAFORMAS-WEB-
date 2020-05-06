@@ -1,5 +1,5 @@
 
-## PROYECTO: Aplicación en NodeJS permita leer los datos de las Suscripciones a telefonía celular móvil
+## PROYECTO: Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil
 
 
 INTEGRANTES:
