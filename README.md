@@ -1,6 +1,14 @@
 
 ## PROYECTO: Aplicación en NodeJS permita leer los datos de las Suscripciones a telefonía celular móvil
 
+
+INTEGRANTES:
+```
+- ANDRES GUEVARRA
+- KEVIN CHANGOLUISA
+- MARIO SUIN
+```
+
 Requerimientos funcionales:
 ```
 • La media de suscripciones de todos los países en el año especificado.
