@@ -1,0 +1,23 @@
+{
+  "name": "-s.telefonias-c.moviles-plataformas-web-",
+  "version": "1.0.0",
+  "description": "Estadistica suscripciones telefonia mundial",
+  "main": "apps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-.git"
+  },
+  "author": "Changoluisa,Guevara,Morales,Suin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-/issues"
+  },
+  "homepage": "https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^15.3.1"
+  }
+}
