@@ -22,7 +22,10 @@ const out = {
 }
 const argv = require('yargs')
     .command('publicar', 'Publicar estadistica', {
-        descripcion
+        file
+        /*,
+        country,
+        year*/
     })
     .command('guardar', 'Almacenar resultados de las estadísticas ', {
         out
