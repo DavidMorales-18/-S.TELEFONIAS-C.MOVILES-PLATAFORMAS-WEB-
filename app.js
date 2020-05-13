@@ -7,7 +7,7 @@ let comando = argv._[0];
 switch (comando) {
     case 'publicar':
         let tarea = tareas.cargarData(argv.file);
-        console.log(tarea);
+
         break;
 
     case 'guardar':
