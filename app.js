@@ -6,10 +6,8 @@ let comando = argv._[0];
 
 switch (comando) {
     case 'publicar':
-        let tarea = tareas.cargarData(argv.file);
-
+        let tarea = tareas.metodoUno(argv.file, argv.country, argv.year);
         break;
-
     case 'guardar':
         console.log("guardar");
         break;
