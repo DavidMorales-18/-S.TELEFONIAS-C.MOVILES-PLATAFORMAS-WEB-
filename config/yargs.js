@@ -6,12 +6,12 @@ const file = {
 
 const country = {
     demand: true,
-    alias: 'y',
+    alias: 'c',
     desc: 'Codigo del país'
 }
 
 const year = {
-    default: true,
+    default: 2018,
     alias: 'y',
     desc: 'Año de suscripción'
 }
@@ -22,10 +22,10 @@ const out = {
 }
 const argv = require('yargs')
     .command('publicar', 'Publicar estadistica', {
-        file
-        /*,
+        file,
         country,
-        year*/
+        year
+
     })
     .command('guardar', 'Almacenar resultados de las estadísticas ', {
         out
