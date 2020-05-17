@@ -1,6 +1,7 @@
 let path = 'API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv';
 const csv = require("csvtojson");
 const colors = require('colors');
+const fs = require("fs");
 
 async function getData(file) {
     try {
@@ -110,6 +111,31 @@ async function getTop5(pais, year) {
     return top
 }
 
+
+
+
+
+//Ayuda a escribir lo q esta en el vector ; vect
+const envJson = (out) => {
+
+    let data1 = JSON.stringify(vect1);
+    fs.writeFile(`./modelo/${out}.json`, data1, (err) => {
+        console.log(`Datos Guardados en en archivo: ${out}.json`.brightCyan);
+        if (err) throw new Error("No se pudo grabar", err);
+    });
+}
+
+
+
+const guardar = (out) => {
+
+    vect.push(top);
+    escribirjson(out);
+};
+
+
+
+
 async function imprimir(path, cod, year) {
     let pais = await getData(path);
     if (pais != "Error 200") {
@@ -120,11 +146,19 @@ async function imprimir(path, cod, year) {
                 console.log("| ".bgGreen + `\n` + "| ".bgGreen + "    " + `::::Archivo ${path} cargado correctamente::::`.bgCyan);
                 console.log("| ".bgGreen + `     Pais: `.brightYellow + `${cod}`.brightCyan);
                 console.log("| ".bgGreen + `     Año: `.brightYellow + `${year}`.brightCyan);
+
+                let vect = {};
+                vect.codigo = cod
+                vect1.anos = year
+                console.log(vect);
+
                 getSuscrip(pais, cod, year)
                     .then((suscriPais) => {
                         getMedia(pais, year, suscriPais)
                             .then((med) => {
                                 console.log("| ".bgGreen + `     La media de suscripciones de todos los países es: `.brightYellow + `${(med)}`.brightCyan);
+
+
                             })
                         getTop5Mayor(pais, year, suscriPais)
                             .then((tp5May) => {
@@ -144,7 +178,9 @@ async function imprimir(path, cod, year) {
                                     if (i.Suscripciones > 0) {
                                         console.log("| ".bgGreen + `     Pais: `.brightYellow + `${i.Pais}`.brightCyan);
                                         console.log("| ".bgGreen + `     Suscripciones: `.brightYellow + `${i.Suscripciones}\n`.brightCyan + "| ".bgGreen);
+
                                     }
+
                                 }
                             })
                         getTop5(pais, year)
@@ -158,6 +194,7 @@ async function imprimir(path, cod, year) {
                             })
 
                     })
+
             } else {
                 console.log('\n     ' + `Al momento no existe registros para el año: ${year} `.bgRed);
             }
@@ -169,7 +206,12 @@ async function imprimir(path, cod, year) {
     }
 
 
+    console.log(`DDDDDDDDDDDDDDDDDDDDDDDDDDDDD`, vect1);
+
+
 }
+
 module.exports = {
-    imprimir
+    imprimir,
+    envJson
 }
