@@ -28,6 +28,9 @@ const argv = require('yargs')
 
     })
     .command('guardar', 'Almacenar resultados de las estadísticas ', {
+        file,
+        country,
+        year,
         out
     })
     .argv;
