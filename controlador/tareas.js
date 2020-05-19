@@ -50,6 +50,7 @@ async function getMedia(pais, year) {
         prom = (sum / prom).toFixed(3)
         return prom
     }
+    console.log("_____________________-", prom);
 }
 async function getTop5Mayor(pais, year, suscriPais) {
     let top = [];
@@ -113,30 +114,29 @@ async function getTop5(pais, year) {
 
 
 
+tarea = { Base: "BASE" }
+
+//fs.writeFileSync('student-2.json', data);
+
+
+let tareasPorHacer = []; //vector de tareas 
+
+
+
 
 
 //Ayuda a escribir lo q esta en el vector ; vect
 const envJson = (out) => {
-
-    let data1 = JSON.stringify(vect1);
-    fs.writeFile(`./modelo/${out}.json`, data1, (err) => {
+    let data = JSON.stringify(tareasPorHacer);
+    fs.writeFile(`./modelo/${out}.json`, data, (err) => {
         console.log(`Datos Guardados en en archivo: ${out}.json`.brightCyan);
         if (err) throw new Error("No se pudo grabar", err);
     });
 }
 
+async function imprimir(path, cod, year, out) {
 
-
-const guardar = (out) => {
-
-    vect.push(top);
-    escribirjson(out);
-};
-
-
-
-
-async function imprimir(path, cod, year) {
+    envJson(out)
     let pais = await getData(path);
     if (pais != "Error 200") {
         let Country = await getCountry(pais, cod);
@@ -146,11 +146,24 @@ async function imprimir(path, cod, year) {
                 console.log("| ".bgGreen + `\n` + "| ".bgGreen + "    " + `::::Archivo ${path} cargado correctamente::::`.bgCyan);
                 console.log("| ".bgGreen + `     Pais: `.brightYellow + `${cod}`.brightCyan);
                 console.log("| ".bgGreen + `     Año: `.brightYellow + `${year}`.brightCyan);
+                tarea = {
+                    'codigo': cod,
+                    ' Año': year,
 
-                let vect = {};
-                vect.codigo = cod
-                vect1.anos = year
-                console.log(vect);
+
+                }
+
+                tareasPorHacer.push(tarea);
+                envJson(out)
+
+
+                let data = JSON.stringify(tareasPorHacer);
+                fs.writeFile(`./modelo/${out}.json`, data, (err) => {
+                    // console.log(`Datos Guardados en en archivo: ${out}.json`.brightCyan);
+                    if (err) throw new Error("No se pudo grabar", err);
+                });
+
+
 
                 getSuscrip(pais, cod, year)
                     .then((suscriPais) => {
@@ -158,17 +171,48 @@ async function imprimir(path, cod, year) {
                             .then((med) => {
                                 console.log("| ".bgGreen + `     La media de suscripciones de todos los países es: `.brightYellow + `${(med)}`.brightCyan);
 
+                                tarea = {
+
+                                    ' Media': med,
+
+
+                                }
+                                tareasPorHacer.push(tarea);
+
+                                let data = JSON.stringify(tareasPorHacer);
+                                fs.writeFile(`./modelo/${out}.json`, data, (err) => {
+
+                                    if (err) throw new Error("No se pudo grabar", err);
+                                });
 
                             })
+
                         getTop5Mayor(pais, year, suscriPais)
                             .then((tp5May) => {
                                 console.log(`------ Cinco países por ENCIMA del valor de suscripciones de ${cod} -----`.magenta);
                                 for (let i of tp5May) {
                                     if (i.Suscripciones > 0) {
                                         console.log("| ".bgGreen + `     Pais: `.brightYellow + `${i.Pais}`.brightCyan);
+
                                         console.log("| ".bgGreen + `     Suscripciones: `.brightYellow + `${i.Suscripciones}\n`.brightCyan + "| ".bgGreen);
+
                                     }
+
                                 }
+                                tarea = {
+
+                                    ' ENCIMA del valor de suscripciones': tp5May
+
+
+                                }
+                                tareasPorHacer.push(tarea);
+
+                                let data = JSON.stringify(tareasPorHacer);
+                                fs.writeFile(`./modelo/${out}.json`, data, (err) => {
+
+                                    if (err) throw new Error("No se pudo grabar", err);
+                                });
+
 
                             })
                         getTop5Menor(pais, year, suscriPais)
@@ -182,6 +226,20 @@ async function imprimir(path, cod, year) {
                                     }
 
                                 }
+
+                                tarea = {
+
+                                    ' Suscripciones Bajas ': tp5Men
+
+
+                                }
+                                tareasPorHacer.push(tarea);
+
+                                let data = JSON.stringify(tareasPorHacer);
+                                fs.writeFile(`./modelo/${out}.json`, data, (err) => {
+
+                                    if (err) throw new Error("No se pudo grabar", err);
+                                });
                             })
                         getTop5(pais, year)
                             .then((tp5) => {
@@ -191,6 +249,24 @@ async function imprimir(path, cod, year) {
                                     console.log("| ".bgGreen + `     Suscripciones: `.brightYellow + `${i.Suscripciones}\n`.brightCyan + "| ".bgGreen);
                                 }
                                 console.log(" -----------------------------------------------------------------------------------------".bgGreen);
+
+
+
+
+
+                                tarea = {
+
+                                    ' Suscripciones mas alta': tp5
+
+
+                                }
+                                tareasPorHacer.push(tarea);
+
+                                let data = JSON.stringify(tareasPorHacer);
+                                fs.writeFile(`./modelo/${out}.json`, data, (err) => {
+
+                                    if (err) throw new Error("No se pudo grabar", err);
+                                });
                             })
 
                     })
@@ -205,11 +281,12 @@ async function imprimir(path, cod, year) {
         console.log(`\n `, `::::No existe el archivo ${path} !::::`.bgRed)
     }
 
-
-    console.log(`DDDDDDDDDDDDDDDDDDDDDDDDDDDDD`, vect1);
-
-
 }
+
+/* tarea = {
+    anoi: ano
+} */
+tareasPorHacer.push(tarea);
 
 module.exports = {
     imprimir,
