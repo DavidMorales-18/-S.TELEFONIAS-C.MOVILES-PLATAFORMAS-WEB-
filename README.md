@@ -1,102 +1,113 @@
+# Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil
 
+_Crear una aplicación en NodeJS que permita leer los datos de las suscripciones a telefonía celular móvil, publicadas por el Banco
+Mundial y publicar las estadísticas de un determinado país en un año específico._
 
-# PROYECTO: Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil
-_Es una Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil, la aplicacion debe de cumplir tanto (Requerimientos funcionales) y (Requerimientos no funcionales)_
+## Comenzando 🚀
 
-
-```
-Requerimientos funcionales:
-
-• La media de suscripciones de todos los países en el año especificado.
-• Establecer si el valor de las suscripciones del país determinado, es mayor o menor a la media mundial.
-• Los cinco países por encima del valor de suscripciones del país determinado.
-• Los cinco países por debajo del valor de suscripciones del país determinado.
-• El top cinco de países para el año especificado.
-```
-```
-Requerimientos no funcionales:
-
-La aplicación dispone de dos comandos. Independientemente del comando que se ejecute, el programa debe mostrar los resultados en la terminal (utilizar colores). Considerar las validaciones correspondientes para todos los parámetros de los comandos.
-El primer comando es publicar. Este comando publicará las estadísticas en una página web básica. Se requieren de tres parámetros:
-
-• --file -f: Permite establecer el path del archivo CSV que contiene los datos a analizar
-• --country -c: Permite determinar el país a analizar a través de su código ISO 3166 ALPHA-3.
-• --year -y: Permite especificar el año para el cual se requiere las estadísticas. Por defecto, 2018.
-
-El segundo comando es guardar. Este comando almacenará los resultados de las estadísticas en un archivo json. Recibe los mismos parámetros que el comando anterior, y se adiciona la siguiente opción:
-
-• --out -o: Establece el nombre del archivo donde se almacenará los resultados.
-
-```
-
+_Estas instrucciones te permitirán ejecutar de manera optima la aplicacion, sigue los pasos, para cualquier duda no dudes en contactarme kchangoluisa@hotmail.com._
 
 ### Pre-requisitos 📋
--El usuario para poder ejecutar el programa debe de tener los siguiente requisitos:
-```
-_1. Windows 7,8,10 de 64 bits o 32 bits ; Ubuntu,Debian de 64 bits ;MAC macOS 10.10_
-```
-```
-_2. Visual Studio Code ultima (versión 1.45)_
-```
-```
-_3. Node.js®  (versión 12.16.3LTS)_
-```
 
+_Software que necesitas instalar._
 
+```
+Visual Studio Code
+Node.js® 
+```
+_Librerias que necesitas instalar._
+
+```
+yargs
+colors
+csvtojson
+```
+_Archivos adicionales._
+```
+API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv
+```
 ### Instalación 🔧
 
-_[Descarga_Proyecto] (https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-)
+_👇Aqui 👇 encontraras un guia de instalacion facil de Visual Studio code y node.js._
+
+
+_Solo ingresa <https://mega.nz/file/nqJShAiA#zm1fgaATnYchLenZnCqkgmmduVdXV3iN1JYQ6zJWsVo/> y sigue los pasos del pdf._
+
+_Instalacion de libreria yargs, colors, csvtojson._
+
 ```
-Una vez descargado el proyecto procedemos a descomprimrilo y subir a nuestro Visual Studio Code entonces inicializaremos a configurar el proyecto.
+Ingresa a la terminal de VSC y digita:
+npm install yargs colors csvtojson --save
 ```
-Instalaciónes: 
+![Screenshot](im_readme/yargs_colors_csvtojson.PNG)
+
+_Base de datos de suscripciones a telefonía celular móvil._
+
+_Solo da un clic en el enlace: <http://api.worldbank.org/v2/es/indicator/IT.CEL.SETS?downloadformat=csv/> y comenzara la descarga automaticamente._
 ```
-a. npm init (Para inicializar cualquier proyecto)
+Guarda en la carpeta raiz del proyecto
+Te quedara algo como esto:
 ```
+![Screenshot](im_readme/zip.PNG)
 ```
-b. npm i yargs colors --save
+Descomprime el archivo API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv en la carpeta raiz del proyecto
+Te quedara algo como esto:
 ```
-```
-c. nmp i csvtojson --save
-```
-```
-b. npm i file-system --save
-```
+![Screenshot](im_readme/csv1.PNG)
 
 ## Ejecutando las pruebas ⚙️
 
-* FORMA PARA PUBLICAR:
-```
-node app.js publicar -f "./nombre_archivo.csv" -c "codigo_pais" -y año
-```
-node app publicar -f './API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv' -c 'ECU' -y '2015'
+La aplicacion cuenta con 2 comandos:
+* Publicar
+* Guardar
+
+**Publicar**
+
+La estructura para publicar en la aplicacion es la sigueinte:
+node app.js publicar **-f** "nombre_archivo.csv" **-c** "[codigo_del_pais ](https://laendercode.net/es/3-letter-list.html)" **-y** Año
 
 ```
-Para visualizar en la web, abra su navegador preferigo e ingrese localhost:3000
+Ejemplo:
+node app.js publicar -f "./API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv" -c "ECU" -y 2016  
 ```
-* FORMA PARA GUARDAR:
+  ![Screenshot](im_readme/consola.gif)
+  
+Para visualizar los resultados en la web siga los siguientes pasos:
 ```
-node app.js guardar -f "./nombre_archivo.csv" -c "codigo_pais" -y año -o "nomre_archivo_sin_extension"
+Abra su navegador digite en la seccion de url: localhost:3000
+de clic en visualizar
 ```
-node app.js guardar -f "./API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv" -c "ECU" -y 2015 -o "david"
+ ![Screenshot](im_readme/web.gif)
 
 
+**Guardar**
+
+La estructura para guardar en la aplicacion es la siguiente:
+node app.js guardar **-f** "nombre_archivo.csv" **-c** "[codigo_del_pais ](https://laendercode.net/es/3-letter-list.html)" **-y** Año **-o** "nombre_archivo_sin_extension"
+
 ```
-_IMPORTANTE NO ELIMINAR ISO-3166-ALPHA-3.json DE LA CARPETA MODELO CONTIENE LOS CODIGOS DE PAISES NORMA ISO-3166-ALPHA-3 ACTUALES_
+Ejemplo:
+node app.js guardar -f "./API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv" -c "ARE" -y 1982 -o consultas
 ```
+ ![Screenshot](im_readme/guardar.gif)
+
+
+[Vista general](https://youtu.be/kFM_HQvt5BU)
+
+
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Visual Studio Code](https://code.visualstudio.com/download) 
-* [Node Js](https://nodejs.org/en/knowledge/javascript-conventions/what-is-json/) 
+* [Visual Studio Code](https://code.visualstudio.com/) - Editor de código fuente.
+* [Node js](https://nodejs.org/es/) - Entorno de ejecución para JavaScript.
 
 
 ## Versionado 📌
 
-Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-).
+Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autores ✒️
+
+_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **ANDRES GUEVARRA** (https://github.com/AndresGuevara01)
 * **KEVIN CHANGOLUISA** (https://github.com/KevinChangoluisa)
@@ -104,3 +115,15 @@ Para todas las versiones disponibles, mira los [tags en este repositorio](https:
 * **DAVID MORALES** (https://github.com/DavidMorales-18)
 
 
+## Licencia 📄
+
+Este proyecto está bajo la Licencia GNU General Public License v3.0 - mira el archivo [LICENSE.md](LICENSE) para detalles
+
+## Expresiones de Gratitud 🎁
+
+* Comenta a otros sobre este proyecto 📢
+* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
+* Da las gracias públicamente 🤓.
+* etc.
+
+---
