@@ -1,14 +1,9 @@
 
-## PROYECTO: Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil
+
+# PROYECTO: Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil
+_Es una Aplicación en NodeJS que permita leer los datos de las Suscripciones a telefonía celular móvil, la aplicacion debe de cumplir tanto (Requerimientos funcionales) y (Requerimientos no funcionales)_
 
 
-INTEGRANTES:
-```
-- ANDRES GUEVARRA
-- KEVIN CHANGOLUISA
-- MARIO SUIN
-- DAVID MORALES
-```
 ```
 Requerimientos funcionales:
 
@@ -33,5 +28,63 @@ El segundo comando es guardar. Este comando almacenará los resultados de las es
 • --out -o: Establece el nombre del archivo donde se almacenará los resultados.
 
 ```
+
+
+### Pre-requisitos 📋
+-El usuario para poder ejecutar el programa debe de tener los siguiente requisitos:
+
+_1. Windows 7,8,10 de 64 bits o 32 bits ; Ubuntu,Debian de 64 bits ;MAC macOS 10.10_
+_2. Visual Studio Code ultima (versión 1.45)_
+_3. Node.js®  (versión 12.16.3LTS)_
+
+
+### Instalación 🔧
+
+_[Descarga_Proyecto] (https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-)
+```
+Una vez descargado el proyecto procedemos a descomprimrilo y subir a nuestro Visual Studio Code entonces inicializaremos a configurar el proyecto.
+```
+Instalaciónes: 
+
+a. npm init (Para inicializar cualquier proyecto)
+b. npm i yargs colors --save
+c. nmp i csvtojson --save
+b. npm i file-system --save
+
+## Ejecutando las pruebas ⚙️
+
+FORMA PARA PUBLICAR
+node app.js publicar -f "./nombre_archivo.csv" -c "codigo_pais" -y año
+node app publicar -f './API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv' -c 'ECU' -y '2015'
+Para visualizar en la web, abra su navegador preferigo e ingrese localhost:3000
+
+FORMA PARA GUARDAR
+
+node app.js guardar -f "./nombre_archivo.csv" -c "codigo_pais" -y año -o "nomre_archivo_sin_extension"
+
+node app.js guardar -f "./API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv" -c "ECU" -y 2015 -o "david"
+
+
+
+_IMPORTANTE NO ELIMINAR ISO-3166-ALPHA-3.json DE LA CARPETA MODELO CONTIENE LOS CODIGOS DE PAISES NORMA ISO-3166-ALPHA-3 ACTUALES_
+
+## Construido con 🛠️
+
+_Menciona las herramientas que utilizaste para crear tu proyecto_
+
+* [Visual Studio Code](https://code.visualstudio.com/download) 
+* [Node Js](https://nodejs.org/en/knowledge/javascript-conventions/what-is-json/) 
+* 
+
+## Versionado 📌
+
+Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/DavidMorales-18/-S.TELEFONIAS-C.MOVILES-PLATAFORMAS-WEB-).
+
+## Autores ✒️
+
+* **ANDRES GUEVARRA** (https://github.com/AndresGuevara01)
+* **KEVIN CHANGOLUISA** (https://github.com/KevinChangoluisa)
+* **MARIO SUIN** (https://github.com/marioAlbertoSuin)
+* **DAVID MORALES** (https://github.com/DavidMorales-18)
 
 
