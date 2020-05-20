@@ -65,7 +65,7 @@ b. npm i file-system --save
 
 ## Ejecutando las pruebas ⚙️
 
-#FORMA PARA PUBLICAR:
+* FORMA PARA PUBLICAR:
 ```
 node app.js publicar -f "./nombre_archivo.csv" -c "codigo_pais" -y año
 ```
@@ -74,7 +74,7 @@ node app publicar -f './API_IT.CEL.SETS_DS2_es_csv_v2_1004854.csv' -c 'ECU' -y '
 ```
 Para visualizar en la web, abra su navegador preferigo e ingrese localhost:3000
 ```
-# FORMA PARA GUARDAR:
+* FORMA PARA GUARDAR:
 ```
 node app.js guardar -f "./nombre_archivo.csv" -c "codigo_pais" -y año -o "nomre_archivo_sin_extension"
 ```
